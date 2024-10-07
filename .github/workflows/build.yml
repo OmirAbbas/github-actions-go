@@ -1,0 +1,19 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: use checkout
+        uses: actions/checkout@v4
+
+      - name: use go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.19" # The Go version to download (if necessary) and use.
+
+      - name: build
+        run: go build hello.go
